@@ -1,0 +1,705 @@
+[gd_scene format=3 uid="uid://bgqdv0xg8jemi"]
+
+[ext_resource type="PackedScene" uid="uid://dv16bier6dpn8" path="res://scenes/board.tscn" id="1_2q6dc"]
+[ext_resource type="FontFile" uid="uid://btyoo3dqplm80" path="res://assets/Comicy.ttf" id="2_olg7q"]
+[ext_resource type="Texture2D" uid="uid://d2tga0ql6jkst" path="res://assets/piece_images/white_knight.png" id="2_ppgk2"]
+[ext_resource type="Texture2D" uid="uid://bdi07nlcnq6yj" path="res://assets/piece_images/white_bishop.png" id="3_2r41h"]
+[ext_resource type="Texture2D" uid="uid://6jwdvijxo4yc" path="res://assets/piece_images/white_rook.png" id="4_klq6b"]
+[ext_resource type="Texture2D" uid="uid://ce8eqe1je3ut6" path="res://assets/piece_images/white_queen.png" id="5_b121j"]
+[ext_resource type="Texture2D" uid="uid://cewfxgqjtve6v" path="res://assets/piece_images/black_knight.png" id="6_8c41q"]
+[ext_resource type="Texture2D" uid="uid://rdrpfrwunpcv" path="res://assets/piece_images/black_bishop.png" id="7_olg7q"]
+[ext_resource type="Texture2D" uid="uid://oti7law3jvfh" path="res://assets/piece_images/black_rook.png" id="8_t1rx8"]
+[ext_resource type="Texture2D" uid="uid://cyhfuv0o18wn" path="res://assets/piece_images/black_queen.png" id="9_8iemx"]
+[ext_resource type="FontFile" uid="uid://fkue34qkeqfp" path="res://assets/LilitaOne-Regular.ttf" id="11_t1rx8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_olg7q"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_t1rx8"]
+sky_material = SubResource("ProceduralSkyMaterial_olg7q")
+
+[sub_resource type="Environment" id="Environment_8iemx"]
+background_mode = 2
+sky = SubResource("Sky_t1rx8")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_olg7q"]
+resource_name = "BlackCineCamera"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CineCameraHolder:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.7853982, 0), Vector3(0, 3.9269907, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CineCameraHolder/CineCamera3D:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [40.0, 25.0]
+}
+
+[sub_resource type="Animation" id="Animation_2q6dc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraHolder:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CineCameraHolder:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CineCameraHolder/CineCamera3D:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [40.0]
+}
+
+[sub_resource type="Animation" id="Animation_w8frs"]
+resource_name = "CineCamera"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CineCameraHolder:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.7853982, 0), Vector3(0, -3.9269907, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CineCameraHolder/CineCamera3D:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [40.0, 25.0]
+}
+
+[sub_resource type="Animation" id="Animation_w7c3h"]
+resource_name = "camera"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraHolder:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.1415927, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w8frs"]
+_data = {
+&"BlackCineCamera": SubResource("Animation_olg7q"),
+&"RESET": SubResource("Animation_2q6dc"),
+&"WhiteCineCamera": SubResource("Animation_w8frs"),
+&"camera": SubResource("Animation_w7c3h")
+}
+
+[sub_resource type="Gradient" id="Gradient_ppgk2"]
+colors = PackedColorArray(0.9616025, 0, 0.16829622, 0.3372549, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2r41h"]
+gradient = SubResource("Gradient_ppgk2")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppgk2"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r41h"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klq6b"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b121j"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1rx8"]
+bg_color = Color(0.11764706, 0.11764706, 0.11764706, 0.8352941)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iemx"]
+bg_color = Color(0.11764706, 0.11764706, 0.11764706, 0.8352941)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64w2a"]
+bg_color = Color(0.11764706, 0.11764706, 0.11764706, 0.8352941)
+
+[sub_resource type="DPITexture" id="DPITexture_t1rx8"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"7\"/><circle cx=\"24\" cy=\"8\" r=\"5\" fill=\"#1a1a1a\"/></svg>
+"
+base_scale = 3.5
+
+[sub_resource type="DPITexture" id="DPITexture_8iemx"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><g fill-opacity=\".5\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" rx=\"7\"/><circle cx=\"8\" cy=\"8\" r=\"5\" fill=\"#fff\"/></g></svg>
+"
+base_scale = 3.5
+
+[sub_resource type="DPITexture" id="DPITexture_64w2a"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".37\" rx=\"7\"/><circle cx=\"24\" cy=\"8\" r=\"5\" fill=\"#1a1a1a\" fill-opacity=\".5\"/></svg>
+"
+base_scale = 3.5
+
+[sub_resource type="DPITexture" id="DPITexture_fpun6"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><g fill-opacity=\".25\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" rx=\"7\"/><circle cx=\"8\" cy=\"8\" r=\"5\" fill=\"#fff\"/></g></svg>
+"
+base_scale = 3.5
+
+[sub_resource type="DPITexture" id="DPITexture_wc255"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"7\"/><circle cx=\"8\" cy=\"8\" r=\"5\" fill=\"#1a1a1a\"/></svg>
+"
+base_scale = 2.5
+
+[sub_resource type="DPITexture" id="DPITexture_arp2o"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><g fill-opacity=\".5\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" rx=\"7\"/><circle cx=\"24\" cy=\"8\" r=\"5\" fill=\"#fff\"/></g></svg>
+"
+base_scale = 3.5
+
+[sub_resource type="DPITexture" id="DPITexture_ux5qa"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".37\" rx=\"7\"/><circle cx=\"8\" cy=\"8\" r=\"5\" fill=\"#1a1a1a\" fill-opacity=\".5\"/></svg>
+"
+base_scale = 3.5
+
+[sub_resource type="DPITexture" id="DPITexture_82cfe"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><g fill-opacity=\".25\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" rx=\"7\"/><circle cx=\"24\" cy=\"8\" r=\"5\" fill=\"#fff\"/></g></svg>
+"
+base_scale = 3.5
+
+[node name="Level" type="Node3D" unique_id=1482602612]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=856008081]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1666925463]
+environment = SubResource("Environment_8iemx")
+
+[node name="Board" parent="." unique_id=1498822605 node_paths=PackedStringArray("camera", "cineCamera", "cineCameraHolder", "bars", "pauseMenu", "gameOverMenu", "promotionContainer", "blackImages", "whiteImages", "knightButton", "bishopButton", "rookButton", "queenButton") instance=ExtResource("1_2q6dc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -3.5)
+camera = NodePath("../CameraHolder/Camera3D")
+cineCamera = NodePath("../CineCameraHolder/CineCamera3D")
+cineCameraHolder = NodePath("../CineCameraHolder")
+bars = NodePath("../Bars")
+pauseMenu = NodePath("../PauseMenu")
+gameOverMenu = NodePath("../GameOverMenu")
+promotionContainer = NodePath("../PromotionContainer")
+blackImages = NodePath("../PromotionContainer/ImagesBlack")
+whiteImages = NodePath("../PromotionContainer/ImagesWhite")
+knightButton = NodePath("../PromotionContainer/Buttons/KnightButton")
+bishopButton = NodePath("../PromotionContainer/Buttons/BishopButton")
+rookButton = NodePath("../PromotionContainer/Buttons/RookButton")
+queenButton = NodePath("../PromotionContainer/Buttons/QueenButton")
+
+[node name="CameraHolder" type="Node3D" parent="." unique_id=1896726311]
+
+[node name="Camera3D" type="Camera3D" parent="CameraHolder" unique_id=575394285]
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, 0, 9.282536, 6.9411917)
+fov = 40.0
+
+[node name="CineCameraHolder" type="Node3D" parent="." unique_id=1127741702]
+
+[node name="CineCamera3D" type="Camera3D" parent="CineCameraHolder" unique_id=694821662]
+transform = Transform3D(1, 0, 0, 0, 0.9394417, 0.3427089, 0, -0.3427089, 0.9394416, 0, 3, 6)
+fov = 40.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=805459491]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_w8frs")
+
+[node name="Timer" type="Timer" parent="." unique_id=192691881]
+unique_name_in_owner = true
+wait_time = 0.8
+one_shot = true
+
+[node name="PromotionContainer" type="Control" parent="." unique_id=1305759173]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PromotionContainer" unique_id=344432598]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1080.0
+offset_right = -839.9999
+offset_bottom = 1920.001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+texture = SubResource("GradientTexture1D_2r41h")
+
+[node name="Label" type="Label" parent="PromotionContainer" unique_id=208835902]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -323.0
+offset_top = 300.0
+offset_right = 323.0
+offset_bottom = 397.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 27
+theme_override_fonts/font = ExtResource("2_olg7q")
+theme_override_font_sizes/font_size = 100
+text = "PROMOTION"
+
+[node name="ButtonsBackground" type="GridContainer" parent="PromotionContainer" unique_id=1484610945]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.7
+anchor_right = 0.7
+anchor_bottom = 0.9
+offset_left = -22.0
+offset_right = 22.0
+offset_bottom = -0.001953125
+grow_horizontal = 2
+grow_vertical = 0
+columns = 4
+
+[node name="ColorRect" type="ColorRect" parent="PromotionContainer/ButtonsBackground" unique_id=1233111669]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+color = Color(1, 1, 1, 0.7607843)
+
+[node name="ColorRect2" type="ColorRect" parent="PromotionContainer/ButtonsBackground" unique_id=1391003736]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+color = Color(1, 1, 1, 0.7607843)
+
+[node name="ColorRect3" type="ColorRect" parent="PromotionContainer/ButtonsBackground" unique_id=1532588042]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+color = Color(1, 1, 1, 0.7607843)
+
+[node name="ColorRect4" type="ColorRect" parent="PromotionContainer/ButtonsBackground" unique_id=872767293]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+color = Color(1, 1, 1, 0.7607843)
+
+[node name="ImagesWhite" type="GridContainer" parent="PromotionContainer" unique_id=967718136]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.7
+anchor_right = 0.7
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_right = 22.0
+offset_bottom = -0.0028076172
+grow_horizontal = 2
+grow_vertical = 0
+columns = 4
+
+[node name="Knight" type="TextureRect" parent="PromotionContainer/ImagesWhite" unique_id=923519907]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("2_ppgk2")
+expand_mode = 1
+
+[node name="Bishop" type="TextureRect" parent="PromotionContainer/ImagesWhite" unique_id=1706614725]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("3_2r41h")
+expand_mode = 1
+
+[node name="Rook" type="TextureRect" parent="PromotionContainer/ImagesWhite" unique_id=364492309]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_klq6b")
+expand_mode = 1
+
+[node name="Queen" type="TextureRect" parent="PromotionContainer/ImagesWhite" unique_id=1782276816]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("5_b121j")
+expand_mode = 1
+
+[node name="ImagesBlack" type="GridContainer" parent="PromotionContainer" unique_id=1614971518]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.7
+anchor_right = 0.7
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_right = 22.0
+offset_bottom = -0.002319336
+grow_horizontal = 2
+grow_vertical = 0
+columns = 4
+
+[node name="Knight" type="TextureRect" parent="PromotionContainer/ImagesBlack" unique_id=1129849982]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("6_8c41q")
+expand_mode = 1
+
+[node name="Bishop" type="TextureRect" parent="PromotionContainer/ImagesBlack" unique_id=1392131211]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("7_olg7q")
+expand_mode = 1
+
+[node name="Rook" type="TextureRect" parent="PromotionContainer/ImagesBlack" unique_id=629979184]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("8_t1rx8")
+expand_mode = 1
+
+[node name="Queen" type="TextureRect" parent="PromotionContainer/ImagesBlack" unique_id=994868490]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("9_8iemx")
+expand_mode = 1
+
+[node name="Buttons" type="GridContainer" parent="PromotionContainer" unique_id=1617888079]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.7
+anchor_right = 0.7
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_right = 22.0
+offset_bottom = -0.003540039
+grow_horizontal = 2
+grow_vertical = 0
+columns = 4
+
+[node name="KnightButton" type="Button" parent="PromotionContainer/Buttons" unique_id=178713755]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ppgk2")
+
+[node name="BishopButton" type="Button" parent="PromotionContainer/Buttons" unique_id=233935954]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_2r41h")
+
+[node name="RookButton" type="Button" parent="PromotionContainer/Buttons" unique_id=962252481]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_klq6b")
+
+[node name="QueenButton" type="Button" parent="PromotionContainer/Buttons" unique_id=1422376731]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_b121j")
+
+[node name="Bars" type="Control" parent="." unique_id=330854555]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="ColorRect" parent="Bars" unique_id=1220113562]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.1
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BottomBar" type="ColorRect" parent="Bars" unique_id=2042726278]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -0.00012207031
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PauseMenu" type="Control" parent="." unique_id=595097449]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PauseMenu" unique_id=1490493072]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1080.0
+offset_right = -839.9999
+offset_bottom = 1920.001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+texture = SubResource("GradientTexture1D_2r41h")
+
+[node name="Label" type="Label" parent="PauseMenu" unique_id=386775712]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -208.0
+offset_top = 300.0
+offset_right = 208.0
+offset_bottom = 97.00002
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 27
+theme_override_fonts/font = ExtResource("2_olg7q")
+theme_override_font_sizes/font_size = 100
+text = "PAUSED"
+
+[node name="ResumeButton" type="Button" parent="PauseMenu" unique_id=1033765049]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -100.0
+offset_right = 500.0
+offset_bottom = -400.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_t1rx8")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_t1rx8")
+text = "RESUME"
+
+[node name="RestartButton" type="Button" parent="PauseMenu" unique_id=295992664]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -200.0
+offset_right = 600.0
+offset_bottom = -250.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_t1rx8")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_8iemx")
+text = "RESTART"
+
+[node name="MainMenuButton" type="Button" parent="PauseMenu" unique_id=270019584]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -100.0
+offset_right = 500.0
+offset_bottom = -100.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_t1rx8")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_64w2a")
+text = "MAIN MENU"
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu" unique_id=635555498]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -800.0
+offset_top = -350.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0.11764706, 0.11764706, 0.11764706, 0.627451)
+
+[node name="BoardRotationButton" type="CheckButton" parent="PauseMenu" unique_id=1408764920]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -681.0
+offset_top = -350.0
+offset_right = -100.0
+offset_bottom = -250.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_t1rx8")
+theme_override_font_sizes/font_size = 50
+theme_override_icons/checked = SubResource("DPITexture_t1rx8")
+theme_override_icons/unchecked = SubResource("DPITexture_8iemx")
+theme_override_icons/checked_disabled = SubResource("DPITexture_64w2a")
+theme_override_icons/unchecked_disabled = SubResource("DPITexture_fpun6")
+theme_override_icons/checked_mirrored = SubResource("DPITexture_wc255")
+theme_override_icons/unchecked_mirrored = SubResource("DPITexture_arp2o")
+theme_override_icons/checked_disabled_mirrored = SubResource("DPITexture_ux5qa")
+theme_override_icons/unchecked_disabled_mirrored = SubResource("DPITexture_82cfe")
+button_pressed = true
+text = "ENABLE BOARD ROTATION"
+alignment = 1
+
+[node name="KillCamButton" type="CheckButton" parent="PauseMenu" unique_id=327558771]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -501.0
+offset_top = -78.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_t1rx8")
+theme_override_font_sizes/font_size = 50
+theme_override_icons/checked = SubResource("DPITexture_t1rx8")
+theme_override_icons/unchecked = SubResource("DPITexture_8iemx")
+theme_override_icons/checked_disabled = SubResource("DPITexture_64w2a")
+theme_override_icons/unchecked_disabled = SubResource("DPITexture_fpun6")
+theme_override_icons/checked_mirrored = SubResource("DPITexture_wc255")
+theme_override_icons/unchecked_mirrored = SubResource("DPITexture_arp2o")
+theme_override_icons/checked_disabled_mirrored = SubResource("DPITexture_ux5qa")
+theme_override_icons/unchecked_disabled_mirrored = SubResource("DPITexture_82cfe")
+button_pressed = true
+text = "ENABLE KILLCAM"
+alignment = 1
+
+[node name="GameOverMenu" type="Control" parent="." unique_id=282764342]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="GameOverMenu" unique_id=168239366]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1080.0
+offset_right = -839.9999
+offset_bottom = 1920.001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+texture = SubResource("GradientTexture1D_2r41h")
+
+[node name="Label" type="Label" parent="GameOverMenu" unique_id=57195242]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -208.0
+offset_top = 300.0
+offset_right = 208.0
+offset_bottom = 397.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 27
+theme_override_fonts/font = ExtResource("2_olg7q")
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER"
+
+[node name="RestartButton" type="Button" parent="GameOverMenu" unique_id=1322435891]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -200.0
+offset_right = 600.0
+offset_bottom = -250.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_t1rx8")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_8iemx")
+text = "PLAY AGAIN"
+
+[node name="MainMenuButton" type="Button" parent="GameOverMenu" unique_id=1522390387]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -100.0
+offset_right = 500.0
+offset_bottom = -100.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_t1rx8")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_64w2a")
+text = "MAIN MENU"
+
+[connection signal="timeout" from="Timer" to="Board" method="_on_timer_timeout"]
+[connection signal="pressed" from="PauseMenu/ResumeButton" to="Board" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/RestartButton" to="Board" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PauseMenu/MainMenuButton" to="Board" method="_on_main_menu_button_pressed"]
+[connection signal="toggled" from="PauseMenu/BoardRotationButton" to="Board" method="_on_board_rotation_button_toggled"]
+[connection signal="toggled" from="PauseMenu/KillCamButton" to="Board" method="_on_kill_cam_button_toggled"]
+[connection signal="pressed" from="GameOverMenu/RestartButton" to="Board" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="GameOverMenu/MainMenuButton" to="Board" method="_on_main_menu_button_pressed"]

@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://c0o53kn352vac"]
+
+[ext_resource type="Script" uid="uid://bbwh3l6ry4qm3" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://fkue34qkeqfp" path="res://assets/LilitaOne-Regular.ttf" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://chhfwd8msdmst" path="res://assets/background/Background.png" id="3_wu84c"]
+[ext_resource type="Texture2D" uid="uid://cjlh5mj43xwkq" path="res://assets/background/Title.png" id="5_8ln24"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0.11858138, 0.11858139, 0.11858136, 0.8352941)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+bg_color = Color(0.11764706, 0.11764706, 0.11764706, 0.8352941)
+
+[node name="MainMenu" type="Control" unique_id=1932524137 node_paths=PackedStringArray("playButton", "exitButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+playButton = NodePath("PlayButton")
+exitButton = NodePath("QuitButton")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=65798868]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_wu84c")
+
+[node name="Label" type="Label" parent="." unique_id=1441316391]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 303.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 100
+text = "CHESS THREE POINT ZERO"
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1618856875]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_8ln24")
+
+[node name="PlayButton" type="Button" parent="." unique_id=1393235381]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -100.0
+offset_right = 500.0
+offset_bottom = -250.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ln24")
+text = "PLAY"
+
+[node name="QuitButton" type="Button" parent="." unique_id=617128214]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -100.0
+offset_right = 500.0
+offset_bottom = -100.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_rtw2f")
+text = "QUIT"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

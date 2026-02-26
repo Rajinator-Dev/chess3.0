@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dv16bier6dpn8"]
+
+[ext_resource type="Script" uid="uid://c50s767gmeki6" path="res://scripts/board.gd" id="1_bw3vb"]
+
+[node name="Board" type="Node3D" unique_id=1498822605]
+script = ExtResource("1_bw3vb")
+
+[node name="Squares" type="Node3D" parent="." unique_id=1985383613]
+unique_name_in_owner = true
+
+[node name="Pieces" type="Node3D" parent="." unique_id=748228495]
+unique_name_in_owner = true
